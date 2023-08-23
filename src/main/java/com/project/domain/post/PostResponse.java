@@ -3,6 +3,7 @@ package com.project.domain.post;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 public class PostResponse {

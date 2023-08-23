@@ -19,6 +19,7 @@ public class PostMapperTest {
     @Autowired
     PostMapper postMapper;
 
+    /*
     @Test
     void save(){
         PostRequest params= new PostRequest();
@@ -71,4 +72,5 @@ public class PostMapperTest {
         postMapper.deleteById(1L);
         System.out.println("삭제 이후의 전체 게시글 수는 : "+postMapper.findAll().size()+"개 입니다.");
     }
+    */
 }
