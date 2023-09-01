@@ -38,11 +38,11 @@
     <!-- 게시글 상세정보 조회 -->
     <select id="findById" parameterType="long" resultType="com.project.domain.post.PostResponse">
         SELECT
-        <include refid="postColumns" />
+            <include refid="postColumns" />
         FROM
-        tb_post
+            tb_post
         WHERE
-        id = #{value}
+            id = #{value}
     </select>
 
 
@@ -50,13 +50,13 @@
     <update id="update" parameterType="com.project.domain.post.PostRequest">
         UPDATE tb_post
         SET
-        modified_date = NOW()
-        , title = #{title}
-        , content = #{content}
-        , writer = #{writer}
-        , notice_yn = #{noticeYn}
+            modified_date = NOW()
+            , title = #{title}
+            , content = #{content}
+            , writer = #{writer}
+            , notice_yn = #{noticeYn}
         WHERE
-        id = #{id}
+            id = #{id}
     </update>
 
 
@@ -64,9 +64,9 @@
     <delete id="deleteById" parameterType="long">
         UPDATE tb_post
         SET
-        delete_yn = 1
+            delete_yn = 1
         WHERE
-        id = #{id}
+            id = #{id}
     </delete>
 
 
