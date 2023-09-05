@@ -18,6 +18,7 @@ public class Pagination {
         if (totalRecordCount > 0) {
             this.totalRecordCount = totalRecordCount;
             calculation(params);
+            params.setPagination(this);
         }
     }
 
@@ -51,4 +52,5 @@ public class Pagination {
         // 다음 페이지 존재 여부 확인
         existNextPage = (endPage * params.getRecordSize()) < totalRecordCount;
     }
+
 }

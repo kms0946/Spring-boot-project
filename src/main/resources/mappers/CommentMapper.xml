@@ -18,15 +18,15 @@
     <!-- 댓글 저장 -->
     <insert id="save" parameterType="com.project.domain.comment.CommentRequest" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO tb_comment (
-        <include refid="commentColumns" />
+            <include refid="commentColumns" />
         ) VALUES (
-        #{id}
-        , #{postId}
-        , #{content}
-        , #{writer}
-        , 0
-        , NOW()
-        , NULL
+            #{id}
+            , #{postId}
+            , #{content}
+            , #{writer}
+            , 0
+            , NOW()
+            , NULL
         )
     </insert>
 
@@ -34,11 +34,11 @@
     <!-- 댓글 상세정보 조회 -->
     <select id="findById" parameterType="long" resultType="com.project.domain.comment.CommentResponse">
         SELECT
-        <include refid="commentColumns" />
+            <include refid="commentColumns" />
         FROM
-        tb_comment
+            tb_comment
         WHERE
-        id = #{value}
+            id = #{value}
     </select>
 
 
@@ -46,11 +46,11 @@
     <update id="update" parameterType="com.project.domain.comment.CommentRequest">
         UPDATE tb_comment
         SET
-        modified_date = NOW()
-        , content = #{content}
-        , writer = #{writer}
+            modified_date = NOW()
+            , content = #{content}
+            , writer = #{writer}
         WHERE
-        id = #{id}
+            id = #{id}
     </update>
 
 
@@ -58,23 +58,36 @@
     <delete id="deleteById" parameterType="long">
         UPDATE tb_comment
         SET
-        delete_yn = 1
+            delete_yn = 1
         WHERE
-        id = #{id}
+            id = #{id}
     </delete>
 
 
     <!-- 댓글 리스트 조회 -->
-    <select id="findAll" parameterType="long" resultType="com.project.domain.comment.CommentResponse">
+    <select id="findAll" parameterType="com.project.domain.comment.CommentSearchDto" resultType="com.project.domain.comment.CommentResponse">
         SELECT
-        <include refid="commentColumns" />
+            <include refid="commentColumns" />
         FROM
-        tb_comment
+            tb_comment
         WHERE
-        delete_yn = 0
-        AND post_id = #{value}
+            delete_yn = 0
+            AND post_id = #{postId}
         ORDER BY
-        id DESC
+            id DESC
+        LIMIT #{pagination.limitStart}, #{recordSize}
+    </select>
+
+
+    <!-- 댓글 수 카운팅 -->
+    <select id="count" parameterType="com.project.domain.comment.CommentSearchDto" resultType="int">
+        SELECT
+            COUNT(*)
+        FROM
+            tb_comment
+        WHERE
+            delete_yn = 0
+            AND post_id = #{postId}
     </select>
 
 </mapper>
