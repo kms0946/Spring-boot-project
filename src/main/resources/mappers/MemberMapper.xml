@@ -17,33 +17,33 @@
     </sql>
 
 
-    <!-- 회원 정보 저장 -->
+    <!-- 회원 정보 저장 (회원가입) -->
     <insert id="save" parameterType="com.project.domain.member.MemberRequest" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO tb_member (
-            <include refid="memberColumns" />
+        <include refid="memberColumns" />
         ) VALUES (
-              #{id}
-            , #{loginId}
-            , #{password}
-            , #{name}
-            , #{gender}
-            , #{birthday}
-            , 0
-            , NOW()
-            , NULL
+        #{id}
+        , #{loginId}
+        , #{password}
+        , #{name}
+        , #{gender}
+        , #{birthday}
+        , 0
+        , NOW()
+        , NULL
         )
     </insert>
 
 
     <!-- 회원 상세정보 조회 -->
-    <select id="findById" parameterType="string" resultType="com.project.domain.member.MemberResponse">
+    <select id="findByLoginId" parameterType="string" resultType="com.project.domain.member.MemberResponse">
         SELECT
-            <include refid="memberColumns" />
+        <include refid="memberColumns" />
         FROM
-            tb_member
+        tb_member
         WHERE
-            delete_yn=0
-            AND login_id=#{value}
+        delete_yn = 0
+        AND login_id = #{value}
     </select>
 
 
@@ -51,35 +51,36 @@
     <update id="update" parameterType="com.project.domain.member.MemberRequest">
         UPDATE tb_member
         SET
-            modified_date = NOW()
-            , name=#{name}
-            , gender=#{gender}
-            , birthday=#{birthday}
-            <if test="password != null and password!=''">
-                , password=#{password}
-            </if>
+        modified_date = NOW()
+        , name = #{name}
+        , gender = #{gender}
+        , birthday = #{birthday}
+        <if test="password != null and password != ''">
+            , password = #{password}
+        </if>
         WHERE
-            id = #{id}
+        id = #{id}
     </update>
 
 
-    <!-- 회원 정보 삭제(회원 탈퇴) -->
+    <!-- 회원 정보 삭제 (회원 탈퇴) -->
     <delete id="deleteById" parameterType="long">
         UPDATE tb_member
         SET
-            delete_yn = 1
+        delete_yn = 1
         WHERE
-            id = #{id}
+        id = #{id}
     </delete>
 
-    <!-- 회원 수 카운팅 -->
+
+    <!-- 회원 수 카운팅 (ID 중복 체크) -->
     <select id="countByLoginId" parameterType="string" resultType="int">
         SELECT
-            COUNT(*)
+        COUNT(*)
         FROM
-            tb_member
+        tb_member
         WHERE
-            login_id=#{value}
+        login_id = #{value}
     </select>
 
 </mapper>
