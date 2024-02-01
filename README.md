@@ -16,8 +16,10 @@
 댓글 CRUD 프론트 구현, 페이징 처리 완료(2023-09-05)  
 로그인 페이지, 회원 가입 기능 구현(2023-09-13)
 
+![로그인](https://github.com/kms0946/Spring-boot-project/assets/96723291/b9b85b26-79b8-42d6-89ff-90fe61e2bc78)
+![회원가입](https://github.com/kms0946/Spring-boot-project/assets/96723291/75a9abc0-b57f-4e45-9a96-8dfa5aed3eed)
 
 로그인 기능 구현(2023-09-20)
 
-![로그인](https://github.com/kms0946/Spring-boot-project/assets/96723291/b9b85b26-79b8-42d6-89ff-90fe61e2bc78)
+
 
