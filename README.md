@@ -13,7 +13,11 @@
 
 게시판 CRUD 구현, Alert 메세지 처리, Logback을 이용해서 SQL 쿼리 로그 출력(2023-08-18)
 
+![삭제](https://github.com/kms0946/Spring-boot-project/assets/96723291/6a92a86f-e505-4796-8bd7-7a68cc5a4bfc)
+
 페이징 기능 구현(2023-08-23)
+
+![페이징 기능](https://github.com/kms0946/Spring-boot-project/assets/96723291/ca176b8e-20b2-40c1-ac2c-c143dc9ffc99)
 
 댓글 CRUD 백엔드 구현, REST API 이용한 댓글 등록 프론트 구현(2023-09-01)
 
@@ -28,5 +32,6 @@
 
 로그인 기능 구현(2023-09-20)
 
+![로그인 실패](https://github.com/kms0946/Spring-boot-project/assets/96723291/ff4ff170-f931-48d4-afce-b801e27631d6)
 
 
