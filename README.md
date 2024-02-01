@@ -5,7 +5,8 @@
 스스로 공부하면서 진행중
 
 개발 과정:  
-게시판 CRUD Test Module 작성, MariaDB 연결 (2023-08-11)  
+게시판 CRUD Test Module 작성, MariaDB 연결 (2023-08-11)
+
 게시판 등록 작성, DB 연결 확인, 메인 프론트단 작성(2023-08-17)
 
 ![등록 이미지](https://github.com/kms0946/Spring-boot-project/assets/96723291/cc20a9f3-c7f2-4dd2-a130-c2a4728b40de)
